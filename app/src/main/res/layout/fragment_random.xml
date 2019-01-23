@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생성한 로또번호" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/randomball1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/randomball2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/randomball3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/randomball4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/randomball5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/randomball6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lottoball_image"
+            android:gravity="center"
+            android:text="number"
+            android:textColor="#ffffffff" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/randomTextResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생성하였습니다!" />
+
+    <Button
+        android:id="@+id/makeRandomBtn"
+        android:text="만들기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

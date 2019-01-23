@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#e6e6e6</color>
+    <!--맨 위 상단바의색상-->
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#a71717</color>
+    <color name="colorText">#000000</color>
+    <!--볼 이미지 -->
+    <color name="ballimage1">#993a3a</color>
+    <color name="ballimage2">#6dbf31</color>
+    <color name="ballimage3">#3c4acc</color>
+    <color name="ballimage4">#9213bc</color>
+    <color name="ballimage5">#d46363</color>
+    <color name="ballimage6">#43b5df</color>
+    <color name="bonusNumber">#279e7a</color>
+    <!--배경색-->
+    <color name="backgroundColor">#FFFFFF</color>
+    <!--메뉴색-->
+    <color name="menuColor">#282f50</color>
+
+</resources>
