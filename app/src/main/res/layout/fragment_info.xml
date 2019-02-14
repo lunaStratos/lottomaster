@@ -12,8 +12,10 @@
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        tools:srcCompat="@drawable/cat"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        app:srcCompat="@drawable/cat"
+        tools:srcCompat="@drawable/cat" />
 
     <TextView
         android:layout_width="match_parent"

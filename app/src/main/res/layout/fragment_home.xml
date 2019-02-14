@@ -3,13 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backgroundColor">
-
+    android:background="@color/backgroundColor"
+    android:padding="10dp">
+    <!--현재회차 로또조회 -->
     <TextView
         android:id="@+id/insert_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회차번호" />
+        android:text="회차번호"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +28,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/ball2"
@@ -33,7 +38,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/ball3"
@@ -42,7 +48,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/ball4"
@@ -51,7 +58,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/ball5"
@@ -60,7 +68,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/ball6"
@@ -69,13 +78,15 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="number"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="+" />
+            android:text="+"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/bonus"
@@ -84,7 +95,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text="bonus"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
 
     </LinearLayout>
@@ -102,22 +114,33 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="당첨액수: " />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="당첨액수: "
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="당첨방식: " />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="당첨방식: "
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1인당 1등 액수: " />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="1인당 1등 액수: "
+                android:textSize="20dp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="총 1등 당첨 인수: " />
+                android:layout_marginTop="5dp"
+                android:text="총 1등 당첨 인수: "
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -130,25 +153,37 @@
                 android:id="@+id/firstAccumamnt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0000원" />
+                android:text="0000원"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/firstHowTo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="000원" />
+                android:text="000원"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/firstWinamnt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0000원" />
+                android:text="0000원"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/firstPrzwnerCo"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="방식" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="방식"
+                android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
 

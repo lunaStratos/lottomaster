@@ -22,8 +22,16 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.internal.schedulers.ComputationScheduler;
+import io.reactivex.internal.schedulers.NewThreadScheduler;
 import lottomaster.lunastratos.com.lottomaster.LottoInfoAsyncTask;
 import lottomaster.lunastratos.com.lottomaster.MainActivity;
+import lottomaster.lunastratos.com.lottomaster.internetConnection.InternetLottoConnection;
 
 public class SplashActivity extends Activity {
 
@@ -31,101 +39,117 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // MainActivity.class 자리에 다음에 넘어갈 액티비티를 넣어주기
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        LottoLoad();
-
-    }
-
-    public void LottoLoad() {
-        LoadFirstTimeAsync task = new LoadFirstTimeAsync();
-        task.execute();
-    }
-
-    private class LoadFirstTimeAsync extends AsyncTask<Void, Void, HashMap> {
-        private final String TAG = "TAG.Debug";
-
-        public LoadFirstTimeAsync() {
-            super();
-        }
-
-        /**
-         * @param strings : String []
-         *                [0]: URL Address
-         *                [1]:  now or before
-         * @return JSONObject
-         */
-
-        @Override
-        protected HashMap doInBackground(Void... Voids) {
-
-            HashMap<String, Object> mapResult = new HashMap();
 
 
-            // Gradle에 implementation 'org.jsoup:jsoup:1.11.3' 추가 후 Sync
-            try {
-                //Start
-                Document doc = Jsoup.connect("https://www.dhlottery.co.kr/gameResult.do?method=byWin").get();
+        //for RXJAVA CODE
+        Observable.create(new ObservableOnSubscribe<Object>() {
 
-                //로또 회차
-                String drwNo = doc.select("div.win_result h4 Strong").text();
-                mapResult.put("drwNo", drwNo);
-
-                //당첨날짜
-                String dateCall = doc.select(".win_result p.desc").text().replace("추첨", "").replaceAll(" ", "");
-                String convertDate = dateCall.replace("년 ", "-").replace("월 ", "-").replace("일 ", "");
-                mapResult.put("drwNoDate", convertDate);
-
-                //로또 당첨 액수와 수
-                Elements lottoMoneys = doc.select(".tbl_data.tbl_data_col tbody tr").eq(1);
-                String firstAccumamnt = lottoMoneys.select("td").eq(1).text().replace("원", "").replaceAll(" ", "");
-                String firstPrzwnerCo = lottoMoneys.select("td").eq(2).text().replace("원", "").replaceAll(" ", "");
-                String firstWinamnt = lottoMoneys.select("td").eq(3).text().replace("원", "").replaceAll(" ", "");
-                String firstHowTo = lottoMoneys.select("td").eq(5).text().replace("1등", "").replace("원", "").replaceAll(" ", "");
-
-                mapResult.put("firstAccumamnt", firstAccumamnt);
-                mapResult.put("firstPrzwnerCo", firstPrzwnerCo);
-                mapResult.put("firstWinamnt", firstWinamnt);
-                mapResult.put("firstHowTo", firstHowTo);
-
-
-                Elements getLottoNum = doc.select(".win_result div.nums div.num p span");
-                int lottoCount = 1;
-                for (Element element : getLottoNum) {
-                    String mapName = "drwtNo" + lottoCount;
-
-                    if (lottoCount == 7) { //보너스 번호
-                        mapResult.put("bnusNo", element.ownText());
-                    } else {
-                        mapResult.put(mapName, element.ownText());
-                    }
-
-                    lottoCount++;
-                }
-
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            @Override
+            public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
+                HashMap map = new InternetLottoConnection().getNowLotto();
+                Log.i("HashMap", map.toString());
+                emitter.onNext(map);
             }
+        }).observeOn(new NewThreadScheduler()).subscribeOn(new NewThreadScheduler())
+                .subscribe(new Consumer<Object>() {
+
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("HashMap", (HashMap)o);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
 
 
-            return mapResult;
-        }
-
-        @Override
-        protected void onPostExecute(HashMap mapObject) {
-            super.onPostExecute(mapObject);
-            Log.d(TAG, mapObject.toString());
-
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("HashMap", mapObject);
-            startActivity(intent);
-            finish();
-
-        }
     }
+//    //legacy code
+//    public void LottoLoad() {
+//        LoadFirstTimeAsync task = new LoadFirstTimeAsync();
+//        task.execute();
+//    }
+//
+//    private class LoadFirstTimeAsync extends AsyncTask<Void, Void, HashMap> {
+//        private final String TAG = "TAG.Debug";
+//
+//        public LoadFirstTimeAsync() {
+//            super();
+//        }
+//
+//        /**
+//         * @param strings : String []
+//         *                [0]: URL Address
+//         *                [1]:  now or before
+//         * @return JSONObject
+//         */
+//
+//        @Override
+//        protected HashMap doInBackground(Void... Voids) {
+//
+//            HashMap<String, Object> mapResult = new HashMap();
+//
+//
+//            // Gradle에 implementation 'org.jsoup:jsoup:1.11.3' 추가 후 Sync
+//            try {
+//                //Start
+//                Document doc = Jsoup.connect("https://www.dhlottery.co.kr/gameResult.do?method=byWin").get();
+//
+//                //로또 회차
+//                String drwNo = doc.select("div.win_result h4 Strong").text();
+//                mapResult.put("drwNo", drwNo);
+//
+//                //당첨날짜
+//                String dateCall = doc.select(".win_result p.desc").text().replace("추첨", "").replaceAll(" ", "");
+//                String convertDate = dateCall.replace("년 ", "-").replace("월 ", "-").replace("일 ", "");
+//                mapResult.put("drwNoDate", convertDate);
+//
+//                //로또 당첨 액수와 수
+//                Elements lottoMoneys = doc.select(".tbl_data.tbl_data_col tbody tr").eq(1);
+//                String firstAccumamnt = lottoMoneys.select("td").eq(1).text().replace("원", "").replaceAll(" ", "");
+//                String firstPrzwnerCo = lottoMoneys.select("td").eq(2).text().replace("원", "").replaceAll(" ", "");
+//                String firstWinamnt = lottoMoneys.select("td").eq(3).text().replace("원", "").replaceAll(" ", "");
+//                String firstHowTo = lottoMoneys.select("td").eq(5).text().replace("1등", "").replace("원", "").replaceAll(" ", "");
+//
+//                mapResult.put("firstAccumamnt", firstAccumamnt);
+//                mapResult.put("firstPrzwnerCo", firstPrzwnerCo);
+//                mapResult.put("firstWinamnt", firstWinamnt);
+//                mapResult.put("firstHowTo", firstHowTo);
+//
+//
+//                Elements getLottoNum = doc.select(".win_result div.nums div.num p span");
+//                int lottoCount = 1;
+//                for (Element element : getLottoNum) {
+//                    String mapName = "drwtNo" + lottoCount;
+//
+//                    if (lottoCount == 7) { //보너스 번호
+//                        mapResult.put("bnusNo", element.ownText());
+//                    } else {
+//                        mapResult.put(mapName, element.ownText());
+//                    }
+//
+//                    lottoCount++;
+//                }
+//
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//            return mapResult;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(HashMap mapObject) {
+//            super.onPostExecute(mapObject);
+//            Log.d(TAG, mapObject.toString());
+//
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            intent.putExtra("HashMap", mapObject);
+//            startActivity(intent);
+//            finish();
+//
+//        }
+//    }
 }

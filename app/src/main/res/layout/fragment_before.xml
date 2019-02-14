@@ -3,13 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/beforeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="결과" />
+        android:text="결과"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"/>
 
 
     <LinearLayout
@@ -25,7 +29,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBall2"
@@ -34,7 +39,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBall3"
@@ -43,7 +49,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBall4"
@@ -52,7 +59,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBall5"
@@ -61,7 +69,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBall6"
@@ -70,13 +79,15 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="+" />
+            android:text="+"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/beforeBonus"
@@ -85,7 +96,8 @@
             android:background="@drawable/lottoball_image"
             android:gravity="center"
             android:text=""
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textSize="20dp"/>
 
 
     </LinearLayout>
@@ -103,22 +115,34 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="당첨액수: " />
+                android:text="당첨액수: "
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="당첨방식: " />
+                android:text="당첨방식: "
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1인당 1등 액수: " />
+                android:text="1인당 1등 액수: "
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="총 1등 당첨 인수: " />
+                android:text="총 1등 당첨 인수: "
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
         </LinearLayout>
 
@@ -131,25 +155,37 @@
                 android:id="@+id/before_firstAccumamnt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/beforefirstHowTo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/beforefirstWinamnt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
 
             <TextView
                 android:id="@+id/beforefirstPrzwnerCo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20dp"/>
         </LinearLayout>
     </LinearLayout>
 
