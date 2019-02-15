@@ -8,8 +8,9 @@
 * JSON Parsing
 * TabLayout
 * Fragment
+* RXjava
 
-처음으로 만든 앱이라. 디자인적로는 단순합니다.
+처음으로 만든 앱이라. 디자인 적로는 단순합니다.
 
 ##
 
